@@ -66,6 +66,14 @@ class Relay_Controller:
 		command = self.wrap_in_api([254, 45, flasher, 0])
 		return self.process_control_command_return(self.send_command(command, 4))
 
+	def turn_off_all_relays(self):
+		command = self.wrap_in_api([254, 140, 0, 0])
+		return self.process_control_command_return(self.send_command(command, 4))
+
+	def turn_on_all_relays(self):
+		command = self.wrap_in_api([254, 140, 255, 0])
+		return self.process_control_command_return(self.send_command(command, 4))
+
 	def set_flasher_speed(self, speed):
 		command = self.wrap_in_api([254, 45, 0, speed])
 		return self.process_control_command_return(self.send_command(command, 4))
